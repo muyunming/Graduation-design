@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/bug.css">
+	<title>BUG反馈</title>
+</head>
+<body>
+	<div class="menu">
+		<img src="img/logo.png" class="logo">
+		<div class="itemOne" >
+            <h3><a href="home.html" >首页</a></h3> 
+        </div>
+		<div class="itemOne" >
+			<h3><a href="#" >资料</a></h3>
+			<div class="itemTwo">
+				<ul>
+					<li><a href="mybns.html">天命编年史</a></li>
+					<li><a href="yxzl.html">游戏资料</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="itemOne" id="this">
+			<h3><a href="#" style="color: #fff">人工系统</a></h3>
+			<div class="itemTwo">
+				<ul>
+					<li><a href="rgxt.html">联系客服</a></li>
+					<li><a href="bug.html">bug反馈</a></li>
+				</ul>
+			</div>
+		</div>
+
+        <div class="itemOne" >
+            <h3><a href="#" >其他</a></h3>
+            <div class="itemTwo">
+                <ul>
+                    <li><a href="yxsq.html">官方社区</a></li>
+                    <li><a href="shop.html">周边商城</a></li>
+                </ul>
+            </div>
+        </div>
+		<div class="clear"></div>
+		<div class="search-box">
+      <input class="search-txt" type="text" placeholder="请输入搜索内容" />
+      <a class="search-btn" href="#">
+        <img src="img/sousuo.png">
+      </a>
+    </div>
+    <div class="user-box">
+      <h3>请登录</h3>
+      <a class="user-btn" href="#">
+        <img src="img/yonghu.png">
+      </a>
+      <div><input class="user-txt" type="text" placeholder="账号" /></div>
+      <div><input class="user-txt" type="text" placeholder="密码" /></div>
+      <div class="BUTTON2"><a href="#"><div class="button2">登录</div></a></div>
+    </div>
+	</div>
+
+	<div class="banner">
+		<img>
+	</div>
+
+	<div class="main">
+		<H2 style="font-size: 20px;color: #ffce1f;border:2px solid #ffce1f;">
+		Bug反馈</H2>
+    <form action="demo-form.php">
+    	
+    	<div style="float: left;margin-top: 5%;margin-left: 5%">请简单描述您遇到的问题<br>
+   <input type="text" name="name1" id="usernamez1" style="font-size: 20px; resize: none;"><br><br>
+   Bug截图(可选)<br> <input type="file" id="file" name="file" />
+   <br>
+<div id="result">截图预览:<br></div>
+</div>
+      <div style="margin: 2%">详细说明 <br>
+  <textarea rows="14" cols="50"   id="usernamez2" style="font-size: 20px; resize: none;">
+</textarea></div>
+  
+  <br>
+<div class="line"></div>
+<input type="button" value="提交" onclick="addUser()">
+</form>
+<div class="imgdiv"><img src="" id="fileimg"></div>
+</div>
+	<div class="footer">
+			<div class="footer_logo">
+			<a href="#"><img src="img/logo.png"></a></div>
+			<div class="line2" style="margin: 30px;"></div>
+			<div class="FootText">
+			<div class="foottext1">
+			<a href="">客服中心</a>|
+			</div>
+			<div class="foottext1">
+			<a href="">服务条款</a>|
+			</div>
+			<div class="foottext1">
+			<a href="">最终用户许可协议</a>|
+			</div>
+			<div class="foottext1">
+			<a href="">隐私策略</a>|
+			</div>
+			<div class="foottext1">
+			<a href="">成长守护平台</a>|
+			</div>
+			<div class="foottext1">
+			<a href="">商务合作</a>
+			</div>
+			<div class="clear"></div>
+			<div class="foottext2">COPYRIGHT © 1998 – 2020 TENCENT. ALL RIGHTS RESERVED.</div>
+			<div class="foottext2"><a href="">XX公司 版权所有</a></div>
+			</div>
+		</div>
+</body>
+<script type="text/javascript">
+    function addUser() {
+      var usernamez1 = document.getElementById("usernamez1").value;
+      var usernamez2 = document.getElementById("usernamez2").value;
+                    if(usernamez1 == ""){
+                        alert('请输入您的问题');
+                        return;
+                    }else if(usernamez2 == ""){
+                        alert('请详细描述您的问题');
+                        return;
+                    }else{
+                      alert('提交成功');
+                      location.reload();
+                      return;
+                    }
+    }
+        function ProcessFile(e) {
+            var file = document.getElementById('file').files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var txt = event.target.result;
+                    var img = document.getElementById("fileimg");
+                    img.src = txt;//将图片base64字符串赋值给img的src
+                   // console.log(txt);
+                    document.getElementById("result").appendChild(img);
+                };
+            }
+            reader.readAsDataURL(file);
+        }
+        function contentLoaded() {
+            document.getElementById('file').addEventListener('change',
+                ProcessFile, false);
+        }
+        window.addEventListener("DOMContentLoaded", contentLoaded, false);
+    </script>
+    
+</html>
